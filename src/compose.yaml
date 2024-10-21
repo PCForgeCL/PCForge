@@ -1,0 +1,55 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "80:80"
+    container_name: frontend
+    networks:
+      - web
+    volumes:
+      - ./frontend/app:/app
+
+  backend:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    container_name: backend
+    networks:
+      - web
+      - db
+    volumes:
+      - ./app:/app
+    env_file:
+      - .env
+    
+
+  database:
+    image: postgres:latest
+    restart: always
+    container_name: database
+    networks:
+      db:
+        aliases:
+          - database.local
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./db:/var/lib/postgresql/data
+
+networks:
+  web:
+  db:
+
+volumes:
+  api:
+  postgres:
