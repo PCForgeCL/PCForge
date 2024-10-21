@@ -1,4 +1,4 @@
-# ![PCForge](assets/demo.jpeg)
+# ![PCForge](assets/1.jpg)
 # PCForge
 <table>
 <tr>
@@ -17,3 +17,15 @@
 - [Express](http://expressjs.com/) 
 - [React](https://react.dev/) 
 - [Postgres](https://www.postgresql.org/)
+
+## System Architecture
+![](assets/system-architecture.jpg)
+
+## E/R Diagram
+![](assets/er-diagram.jpg)
+
+## UI
+![](assets/1.jpg)
+![](assets/2.jpg)
+![](assets/3.jpg)
+![](assets/4.jpg)
