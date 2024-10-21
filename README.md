@@ -12,6 +12,8 @@
 
 ## Built with 
 
-- [jQuery - Ajax](http://www.w3schools.com/jquery/jquery_ref_ajax.asp) 
-- [Google Chart API](https://developers.google.com/chart/interactive/docs/quick_start)
-- [Bootstrap](http://getbootstrap.com/) 
+- [Docker](https://www.docker.com/) 
+- [NodeJS](https://nodejs.org/en)
+- [Express](http://expressjs.com/) 
+- [React](https://react.dev/) 
+- [Postgres](https://www.postgresql.org/)
