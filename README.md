@@ -23,10 +23,12 @@
 ![](assets/er-diagram.jpg)
 
 ## UI
+Vista principal de la página, donde se observan los filtros (marca y categorías) y los componentes
 ![](assets/1.jpg)
+
+Comparación de componentes: Opción 1 -> donde los detalles/descripción de los componentes se pueden ver al apretar el botón de más detalles
 ![](assets/2.jpg)
 ![](assets/3.jpg)
-![](assets/4.jpg)
 
-## How the app looks today
-![](assets/app.png)
+Comparación de componentes: Opción 2 -> donde los detalles/descripción de los componentes se pueden ver directamente en la tarjeta del componente
+![](assets/4.jpg)
