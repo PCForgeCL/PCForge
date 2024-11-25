@@ -34,7 +34,7 @@ app.get('/', async (req, res) => {
 app.get('/brands', async (req, res) => {
   try {
     const client = await pool.connect();
-    const result = await client.query('SELECT * FROM brands');
+    const result = await client.query('SELECT * FROM "Brands"');
     res.json(result.rows);
     client.release();
   } catch (err) {
@@ -47,7 +47,7 @@ app.get('/brands', async (req, res) => {
 app.get('/categories', async (req, res) => {
   try {
     const client = await pool.connect();
-    const result = await client.query('SELECT * FROM categories');
+    const result = await client.query('SELECT * FROM "Categories"');
     res.json(result.rows);
     client.release();
   } catch (err) {
@@ -64,7 +64,7 @@ app.get('/components', async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query(
-      'SELECT * FROM components ORDER BY id LIMIT $1 OFFSET $2',
+      'SELECT * FROM "Components" ORDER BY id LIMIT $1 OFFSET $2',
       [parseInt(limit), offset]
     );
     res.json(result.rows);
@@ -76,13 +76,12 @@ app.get('/components', async (req, res) => {
 });
 
 // Rutas para obtener componentes por categoría
-app.get('/components/category/:id', async (req, res) => {
+app.get('/components/category/:name', async (req, res) => {
   try {
     const client = await pool.connect();
-    const categoryId = parseInt(req.params.id);
     const result = await client.query(
-      'SELECT * FROM components WHERE category_id = $1',
-      [categoryId]
+      'SELECT * FROM "Components" WHERE "categoryName" = $1',
+      [req.params.name]
     );
     res.json(result.rows);
     client.release();
@@ -93,13 +92,12 @@ app.get('/components/category/:id', async (req, res) => {
 });
 
 // Rutas para obtener componentes por marca
-app.get('/components/brand/:id', async (req, res) => {
+app.get('/components/brand/:name', async (req, res) => {
   try {
     const client = await pool.connect();
-    const brandId = parseInt(req.params.id);
     const result = await client.query(
-      'SELECT * FROM components WHERE brand_id = $1',
-      [brandId]
+      'SELECT * FROM "Components" WHERE "brandName" = $1',
+      [req.params.name]
     );
     res.json(result.rows);
     client.release();
@@ -116,7 +114,7 @@ app.get('/components/price', async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query(
-      'SELECT * FROM components WHERE price BETWEEN $1 AND $2 ORDER BY price ASC',
+      'SELECT * FROM "Components" WHERE price BETWEEN $1 AND $2 ORDER BY price ASC',
       [parseInt(min), parseInt(max)]
     );
     res.json(result.rows);
@@ -138,7 +136,7 @@ app.get('/components/search', async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query(
-      'SELECT * FROM components WHERE name ILIKE $1',
+      'SELECT * FROM "Components" WHERE name ILIKE $1',
       [`%${name}%`]
     );
     res.json(result.rows);
