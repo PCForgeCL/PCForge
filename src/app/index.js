@@ -58,97 +58,6 @@ app.get('/categories', async (req, res) => {
   }
 });
 
-// Rutas para obtener todos los componentes
-app.get('/components', async (req, res) => {
-  const { page = 1, limit = 10 } = req.query; // Paginación
-  const offset = (page - 1) * limit;
-
-  try {
-    const client = await pool.connect();
-    const result = await client.query(
-      'SELECT * FROM "Components" ORDER BY id LIMIT $1 OFFSET $2',
-      [parseInt(limit), offset]
-    );
-    res.json(result.rows);
-    client.release();
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Error al obtener los componentes');
-  }
-});
-
-// Rutas para obtener componentes por categoría
-app.get('/components/category/:name', async (req, res) => {
-  try {
-    const client = await pool.connect();
-    const result = await client.query(
-      'SELECT * FROM "Components" WHERE "categoryName" = $1',
-      [req.params.name]
-    );
-    res.json(result.rows);
-    client.release();
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Error al obtener componentes por categoría');
-  }
-});
-
-// Rutas para obtener componentes por marca
-app.get('/components/brand/:name', async (req, res) => {
-  try {
-    const client = await pool.connect();
-    const result = await client.query(
-      'SELECT * FROM "Components" WHERE "brandName" = $1',
-      [req.params.name]
-    );
-    res.json(result.rows);
-    client.release();
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Error al obtener componentes por marca');
-  }
-});
-
-// Rutas para filtrar componentes por rango de precios
-app.get('/components/price', async (req, res) => {
-  const { min = 0, max = Number.MAX_SAFE_INTEGER } = req.query;
-
-  try {
-    const client = await pool.connect();
-    const result = await client.query(
-      'SELECT * FROM "Components" WHERE price BETWEEN $1 AND $2 ORDER BY price ASC',
-      [parseInt(min), parseInt(max)]
-    );
-    res.json(result.rows);
-    client.release();
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Error al filtrar componentes por precio');
-  }
-});
-
-// Rutas para buscar componentes por nombre (búsqueda básica)
-app.get('/components/search', async (req, res) => {
-  const { name } = req.query;
-
-  if (!name) {
-    return res.status(400).send('Debes proporcionar un término de búsqueda');
-  }
-
-  try {
-    const client = await pool.connect();
-    const result = await client.query(
-      'SELECT * FROM "Components" WHERE name ILIKE $1',
-      [`%${name}%`]
-    );
-    res.json(result.rows);
-    client.release();
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Error al buscar componentes');
-  }
-});
-
 // Rutas para obtener las tiendas
 app.get('/shops', async (req, res) => {
   try {
@@ -159,6 +68,42 @@ app.get('/shops', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send('Error al obtener las tiendas');
+  }
+});
+
+app.get('/components', async (req, res) => {
+  const { 
+    name = '*',
+    page = 1,
+    limit = 10,
+    category = '*',
+    brand = '*',
+    shop = '*',
+    minPrice = 0,
+    maxPrice = Number.MAX_SAFE_INTEGER
+  } = req.query; 
+  const offset = (page - 1) * limit;
+
+  try {
+    const client = await pool.connect();
+    const result = await client.query(
+      `SELECT * 
+       FROM "Components" 
+       WHERE 
+         ($1 = '%*%' OR name ILIKE $1) AND
+         ($3 = '*' OR "categoryName" = $3) AND
+         ($4 = '*' OR "brandName" = $4) AND
+         ($5 = '*' OR "shopName" = $5) AND
+         price BETWEEN $6 AND $7
+       ORDER BY id
+       LIMIT $2 OFFSET $8`,
+      [`%${name}%`, parseInt(limit), category, brand, shop, parseInt(minPrice), parseInt(maxPrice), offset]
+    );
+    res.json(result.rows);
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error al buscar componentes');
   }
 });
 
