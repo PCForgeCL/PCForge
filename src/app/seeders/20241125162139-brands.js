@@ -2,32 +2,26 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
-    await queryInterface.bulkInsert('Brands', [
-      { name: 'Nvidia', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Intel', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'AMD', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'HP', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Asus', createdAt: new Date(), updatedAt: new Date() },
-    ], {});
+  async up(queryInterface, Sequelize) {
+    const brands = [
+      'Asus', 'MSI', 'Gigabyte', 'EVGA', 'Zotac', 'Sapphire', 'PowerColor', 'PNY',
+      'Corsair', 'Cooler Master', 'Noctua', 'Western Digital', 'Seagate', 'Crucial',
+      'ADATA', 'Kingston', 'Samsung', 'Intel', 'AMD', 'Nvidia', 'Thermaltake',
+      'Be Quiet!', 'Lian Li', 'Fractal Design', 'NZXT', 'ASRock', 'HyperX', 'Razer',
+      'Logitech', 'SteelSeries', 'Dell', 'TP-Link', 'Acer', 'Sony'
+    ];
+
+    const timestamp = new Date();
+    const brandRecords = brands.map(name => ({
+      name,
+      createdAt: timestamp,
+      updatedAt: timestamp
+    }));
+
+    await queryInterface.bulkInsert('Brands', brandRecords, {});
   },
 
-  async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+  async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('Brands', null, {});
   }
 };

@@ -2,16 +2,7 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Components', [
       {
         name: 'RTX 3090',
@@ -21,28 +12,895 @@ module.exports = {
         description: 'The Nvidia RTX 3090 is the most powerful consumer graphics card in the world',
         price: 1499.99,
         createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Ryzen 9 5900X',
+        categoryName: 'Processors',
+        brandName: 'AMD',
+        shopName: 'Newegg',
+        description: 'High-performance processor for gaming and productivity',
+        price: 499.99,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Corsair Vengeance LPX 16GB',
+        categoryName: 'Memory',
+        brandName: 'Corsair',
+        shopName: 'Best Buy',
+        description: 'High-speed DDR4 memory optimized for gaming',
+        price: 89.99,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Samsung 970 EVO Plus 1TB',
+        categoryName: 'Storage',
+        brandName: 'Samsung',
+        shopName: 'Amazon',
+        description: 'NVMe M.2 SSD for blazing-fast speeds',
+        price: 119.99,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Cooler Master Hyper 212',
+        categoryName: 'Cooling',
+        brandName: 'Cooler Master',
+        shopName: 'Micro Center',
+        description: 'Efficient air cooler for CPUs',
+        price: 39.99,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Asus ROG Strix X570-E',
+        categoryName: 'Motherboards',
+        brandName: 'Asus',
+        shopName: 'Newegg',
+        description: 'High-end motherboard for Ryzen processors',
+        price: 299.99,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'EVGA 850W Gold Power Supply',
+        categoryName: 'Power Supplies',
+        brandName: 'EVGA',
+        shopName: 'B&H Photo Video',
+        description: 'Reliable and efficient 850W power supply',
+        price: 139.99,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Lian Li PC-O11 Dynamic',
+        categoryName: 'Cases',
+        brandName: 'Lian Li',
+        shopName: 'Amazon',
+        description: 'Premium case with excellent cooling options',
+        price: 129.99,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Logitech G Pro X',
+        categoryName: 'Headset',
+        brandName: 'Logitech',
+        shopName: 'Target',
+        description: 'High-quality gaming headset for competitive play',
+        price: 99.99,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Dell UltraSharp U2723QE',
+        categoryName: 'Monitors',
+        brandName: 'Dell',
+        shopName: 'PC Part Picker',
+        description: 'Professional 4K monitor with vibrant colors',
+        price: 649.99,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Razer BlackWidow V3',
+        categoryName: 'Peripherals',
+        brandName: 'Razer',
+        shopName: 'Walmart',
+        description: 'RGB mechanical keyboard for gamers',
+        price: 139.99,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'SteelSeries Rival 600',
+        categoryName: 'Peripherals',
+        brandName: 'SteelSeries',
+        shopName: 'Best Buy',
+        description: 'Precision gaming mouse with customizable weights',
+        price: 69.99,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Western Digital Elements 4TB',
+        categoryName: 'External Storage',
+        brandName: 'Western Digital',
+        shopName: 'AliExpress',
+        description: 'Reliable external hard drive with ample storage',
+        price: 89.99,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'TP-Link Archer AX73',
+        categoryName: 'Network Adapter',
+        brandName: 'TP-Link',
+        shopName: 'Amazon',
+        description: 'High-speed Wi-Fi 6 router for seamless connections',
+        price: 179.99,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Corsair iCUE Commander PRO',
+        categoryName: 'Fan Controller',
+        brandName: 'Corsair',
+        shopName: 'B&H Photo Video',
+        description: 'Comprehensive RGB and fan speed control',
+        price: 59.99,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Corsair Vengeance LPX 16GB',
+        categoryName: 'Memory',
+        brandName: 'Corsair',
+        shopName: 'Amazon',
+        description: '16GB DDR4 memory optimized for high performance',
+        price: 69.99,
+        createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        name: 'RTX 3090',
+        name: 'Corsair Vengeance LPX 16GB',
+        categoryName: 'Memory',
+        brandName: 'Corsair',
+        shopName: 'Best Buy',
+        description: '16GB DDR4 memory optimized for high performance',
+        price: 72.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Nvidia RTX 3070',
         categoryName: 'Graphics Cards',
         brandName: 'Nvidia',
         shopName: 'Newegg',
-        description: 'The Nvidia RTX 3090 is the most powerful consumer graphics card in the world!! Buy it here!',
-        price: 1600.99,
+        description: 'High-performance graphics card for 4K gaming',
+        price: 649.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Nvidia RTX 3070',
+        categoryName: 'Graphics Cards',
+        brandName: 'Nvidia',
+        shopName: 'Amazon',
+        description: 'High-performance graphics card for 4K gaming',
+        price: 675.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Western Digital Black SN850X 1TB',
+        categoryName: 'Storage',
+        brandName: 'Western Digital',
+        shopName: 'Newegg',
+        description: '1TB NVMe SSD with high read and write speeds',
+        price: 149.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Western Digital Black SN850X 1TB',
+        categoryName: 'Storage',
+        brandName: 'Western Digital',
+        shopName: 'Amazon',
+        description: '1TB NVMe SSD with high read and write speeds',
+        price: 145.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Asus TUF Gaming Z590-Plus',
+        categoryName: 'Motherboards',
+        brandName: 'Asus',
+        shopName: 'Newegg',
+        description: 'Durable motherboard for Intel 10th and 11th Gen processors',
+        price: 189.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Asus TUF Gaming Z590-Plus',
+        categoryName: 'Motherboards',
+        brandName: 'Asus',
+        shopName: 'Amazon',
+        description: 'Durable motherboard for Intel 10th and 11th Gen processors',
+        price: 179.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Razer DeathAdder V2',
+        categoryName: 'Peripherals',
+        brandName: 'Razer',
+        shopName: 'Amazon',
+        description: 'Ergonomic gaming mouse with 20K DPI sensor',
+        price: 49.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Razer DeathAdder V2',
+        categoryName: 'Peripherals',
+        brandName: 'Razer',
+        shopName: 'Best Buy',
+        description: 'Ergonomic gaming mouse with 20K DPI sensor',
+        price: 54.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Intel Core i7-11700K',
+        categoryName: 'Processors',
+        brandName: 'Intel',
+        shopName: 'Newegg',
+        description: 'Powerful processor for gaming and productivity',
+        price: 329.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Intel Core i7-11700K',
+        categoryName: 'Processors',
+        brandName: 'Intel',
+        shopName: 'Amazon',
+        description: 'Powerful processor for gaming and productivity',
+        price: 339.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Corsair RM750x',
+        categoryName: 'Power Supplies',
+        brandName: 'Corsair',
+        shopName: 'Newegg',
+        description: '750W power supply with 80+ Gold certification',
+        price: 89.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Corsair RM750x',
+        categoryName: 'Power Supplies',
+        brandName: 'Corsair',
+        shopName: 'Amazon',
+        description: '750W power supply with 80+ Gold certification',
+        price: 85.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Samsung Odyssey G7 27"',
+        categoryName: 'Monitors',
+        brandName: 'Samsung',
+        shopName: 'Newegg',
+        description: '27-inch QHD monitor with 240Hz refresh rate for gaming',
+        price: 549.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Samsung Odyssey G7 27"',
+        categoryName: 'Monitors',
+        brandName: 'Samsung',
+        shopName: 'Amazon',
+        description: '27-inch QHD monitor with 240Hz refresh rate for gaming',
+        price: 539.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Logitech G Pro X',
+        categoryName: 'Headset',
+        brandName: 'Logitech',
+        shopName: 'Amazon',
+        description: 'Wireless gaming headset with Blue VO!CE microphone technology',
+        price: 199.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Logitech G Pro X',
+        categoryName: 'Headset',
+        brandName: 'Logitech',
+        shopName: 'Best Buy',
+        description: 'Wireless gaming headset with Blue VO!CE microphone technology',
+        price: 189.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Acer Predator Helios 300',
+        categoryName: 'Laptops',
+        brandName: 'Acer',
+        shopName: 'Amazon',
+        description: 'Gaming laptop with Intel i7 and RTX 3060',
+        price: 1399.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Acer Predator Helios 300',
+        categoryName: 'Laptops',
+        brandName: 'Acer',
+        shopName: 'Best Buy',
+        description: 'Gaming laptop with Intel i7 and RTX 3060',
+        price: 1449.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'HyperX Alloy FPS Pro',
+        categoryName: 'Peripherals',
+        brandName: 'HyperX',
+        shopName: 'Amazon',
+        description: 'Tenkeyless mechanical gaming keyboard',
+        price: 79.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'HyperX Alloy FPS Pro',
+        categoryName: 'Peripherals',
+        brandName: 'HyperX',
+        shopName: 'Newegg',
+        description: 'Tenkeyless mechanical gaming keyboard',
+        price: 75.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Seagate Barracuda 2TB',
+        categoryName: 'Storage',
+        brandName: 'Seagate',
+        shopName: 'Amazon',
+        description: '2TB HDD with 7200 RPM speed',
+        price: 54.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Seagate Barracuda 2TB',
+        categoryName: 'Storage',
+        brandName: 'Seagate',
+        shopName: 'Best Buy',
+        description: '2TB HDD with 7200 RPM speed',
+        price: 59.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'MSI MAG B550 TOMAHAWK',
+        categoryName: 'Motherboards',
+        brandName: 'MSI',
+        shopName: 'Newegg',
+        description: 'ATX motherboard with support for AMD Ryzen 3000 and 5000 series',
+        price: 159.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'MSI MAG B550 TOMAHAWK',
+        categoryName: 'Motherboards',
+        brandName: 'MSI',
+        shopName: 'Amazon',
+        description: 'ATX motherboard with support for AMD Ryzen 3000 and 5000 series',
+        price: 165.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Logitech G Pro Wireless',
+        categoryName: 'Peripherals',
+        brandName: 'Logitech',
+        shopName: 'Newegg',
+        description: 'Wireless gaming mouse with HERO sensor',
+        price: 129.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Logitech G Pro Wireless',
+        categoryName: 'Peripherals',
+        brandName: 'Logitech',
+        shopName: 'Amazon',
+        description: 'Wireless gaming mouse with HERO sensor',
+        price: 119.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Intel Core i5-11600K',
+        categoryName: 'Processors',
+        brandName: 'Intel',
+        shopName: 'Newegg',
+        description: '6-core, 12-thread processor with unlocked multiplier',
+        price: 279.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Intel Core i5-11600K',
+        categoryName: 'Processors',
+        brandName: 'Intel',
+        shopName: 'Best Buy',
+        description: '6-core, 12-thread processor with unlocked multiplier',
+        price: 289.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Samsung 970 EVO Plus 500GB',
+        categoryName: 'Storage',
+        brandName: 'Samsung',
+        shopName: 'Newegg',
+        description: '500GB NVMe SSD with read/write speeds of up to 3500/3300 MB/s',
+        price: 69.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Samsung 970 EVO Plus 500GB',
+        categoryName: 'Storage',
+        brandName: 'Samsung',
+        shopName: 'Amazon',
+        description: '500GB NVMe SSD with read/write speeds of up to 3500/3300 MB/s',
+        price: 72.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'NZXT H510',
+        categoryName: 'Cases',
+        brandName: 'NZXT',
+        shopName: 'Best Buy',
+        description: 'Mid tower case with tempered glass and cable management',
+        price: 69.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'NZXT H510',
+        categoryName: 'Cases',
+        brandName: 'NZXT',
+        shopName: 'Newegg',
+        description: 'Mid tower case with tempered glass and cable management',
+        price: 74.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Kingston HyperX Cloud II',
+        categoryName: 'Headset',
+        brandName: 'Kingston',
+        shopName: 'Amazon',
+        description: 'Gaming headset with virtual 7.1 surround sound and noise-cancelling microphone',
+        price: 99.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Kingston HyperX Cloud II',
+        categoryName: 'Headset',
+        brandName: 'Kingston',
+        shopName: 'Newegg',
+        description: 'Gaming headset with virtual 7.1 surround sound and noise-cancelling microphone',
+        price: 95.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Corsair Vengeance LPX 16GB',
+        categoryName: 'Memory',
+        brandName: 'Corsair',
+        shopName: 'Amazon',
+        description: '16GB (2x8GB) DDR4 3200MHz C16 RAM',
+        price: 59.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Corsair Vengeance LPX 16GB',
+        categoryName: 'Memory',
+        brandName: 'Corsair',
+        shopName: 'Newegg',
+        description: '16GB (2x8GB) DDR4 3200MHz C16 RAM',
+        price: 62.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Dell XPS 13',
+        categoryName: 'Laptops',
+        brandName: 'Dell',
+        shopName: 'Amazon',
+        description: '13-inch ultrabook with Intel i7 and 16GB of RAM',
+        price: 1499.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Dell XPS 13',
+        categoryName: 'Laptops',
+        brandName: 'Dell',
+        shopName: 'Best Buy',
+        description: '13-inch ultrabook with Intel i7 and 16GB of RAM',
+        price: 1549.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Razer Blade 15',
+        categoryName: 'Laptops',
+        brandName: 'Razer',
+        shopName: 'Newegg',
+        description: '15.6-inch gaming laptop with Intel i7 and RTX 3070',
+        price: 1799.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Razer Blade 15',
+        categoryName: 'Laptops',
+        brandName: 'Razer',
+        shopName: 'Amazon',
+        description: '15.6-inch gaming laptop with Intel i7 and RTX 3070',
+        price: 1849.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Samsung Odyssey G7 27"',
+        categoryName: 'Monitors',
+        brandName: 'Samsung',
+        shopName: 'Best Buy',
+        description: '27-inch QHD curved gaming monitor with 240Hz refresh rate',
+        price: 699.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Samsung Odyssey G7 27"',
+        categoryName: 'Monitors',
+        brandName: 'Samsung',
+        shopName: 'Newegg',
+        description: '27-inch QHD curved gaming monitor with 240Hz refresh rate',
+        price: 689.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Corsair K95 RGB Platinum',
+        categoryName: 'Peripherals',
+        brandName: 'Corsair',
+        shopName: 'Amazon',
+        description: 'Mechanical keyboard with RGB lighting and dedicated macro keys',
+        price: 199.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Corsair K95 RGB Platinum',
+        categoryName: 'Peripherals',
+        brandName: 'Corsair',
+        shopName: 'Newegg',
+        description: 'Mechanical keyboard with RGB lighting and dedicated macro keys',
+        price: 189.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Sony WH-1000XM4',
+        categoryName: 'Headset',
+        brandName: 'Sony',
+        shopName: 'Best Buy',
+        description: 'Noise-cancelling over-ear headphones with up to 30 hours of battery life',
+        price: 348.00,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Sony WH-1000XM4',
+        categoryName: 'Headset',
+        brandName: 'Sony',
+        shopName: 'Amazon',
+        description: 'Noise-cancelling over-ear headphones with up to 30 hours of battery life',
+        price: 339.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Intel Core i9-11900K',
+        categoryName: 'Processors',
+        brandName: 'Intel',
+        shopName: 'Newegg',
+        description: '8-core, 16-thread processor with unlocked multiplier for overclocking',
+        price: 699.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Intel Core i9-11900K',
+        categoryName: 'Processors',
+        brandName: 'Intel',
+        shopName: 'Amazon',
+        description: '8-core, 16-thread processor with unlocked multiplier for overclocking',
+        price: 709.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Asus TUF Gaming Z590-Plus',
+        categoryName: 'Motherboards',
+        brandName: 'Asus',
+        shopName: 'Best Buy',
+        description: 'Motherboard with Intel Z590 chipset and Wi-Fi 6 support',
+        price: 209.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Asus TUF Gaming Z590-Plus',
+        categoryName: 'Motherboards',
+        brandName: 'Asus',
+        shopName: 'Newegg',
+        description: 'Motherboard with Intel Z590 chipset and Wi-Fi 6 support',
+        price: 214.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'MSI GeForce RTX 3080',
+        categoryName: 'Graphics Cards',
+        brandName: 'MSI',
+        shopName: 'Newegg',
+        description: 'NVIDIA GeForce RTX 3080 with 10GB GDDR6X memory',
+        price: 699.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'MSI GeForce RTX 3080',
+        categoryName: 'Graphics Cards',
+        brandName: 'MSI',
+        shopName: 'Amazon',
+        description: 'NVIDIA GeForce RTX 3080 with 10GB GDDR6X memory',
+        price: 749.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Samsung 970 EVO 1TB',
+        categoryName: 'Storage',
+        brandName: 'Samsung',
+        shopName: 'Amazon',
+        description: '1TB NVMe SSD with read speeds up to 3500MB/s and write speeds up to 2500MB/s',
+        price: 119.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Samsung 970 EVO 1TB',
+        categoryName: 'Storage',
+        brandName: 'Samsung',
+        shopName: 'Newegg',
+        description: '1TB NVMe SSD with read speeds up to 3500MB/s and write speeds up to 2500MB/s',
+        price: 122.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Logitech G Pro X',
+        categoryName: 'Headset',
+        brandName: 'Logitech',
+        shopName: 'Amazon',
+        description: 'Premium gaming headset with Blue VO!CE microphone technology and customizable sound',
+        price: 129.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Logitech G Pro X',
+        categoryName: 'Headset',
+        brandName: 'Logitech',
+        shopName: 'Best Buy',
+        description: 'Premium gaming headset with Blue VO!CE microphone technology and customizable sound',
+        price: 139.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Asus ROG Strix RTX 3070',
+        categoryName: 'Graphics Cards',
+        brandName: 'Asus',
+        shopName: 'Amazon',
+        description: 'NVIDIA GeForce RTX 3070 with 8GB GDDR6 memory',
+        price: 679.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Asus ROG Strix RTX 3070',
+        categoryName: 'Graphics Cards',
+        brandName: 'Asus',
+        shopName: 'Newegg',
+        description: 'NVIDIA GeForce RTX 3070 with 8GB GDDR6 memory',
+        price: 699.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Seagate Barracuda 4TB',
+        categoryName: 'Storage',
+        brandName: 'Seagate',
+        shopName: 'Newegg',
+        description: '4TB HDD with 5400 RPM for high capacity storage',
+        price: 89.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Seagate Barracuda 4TB',
+        categoryName: 'Storage',
+        brandName: 'Seagate',
+        shopName: 'Best Buy',
+        description: '4TB HDD with 5400 RPM for high capacity storage',
+        price: 94.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'AMD Ryzen 7 5800X',
+        categoryName: 'Processors',
+        brandName: 'AMD',
+        shopName: 'Amazon',
+        description: '8-core, 16-thread processor with a max boost clock of 4.7GHz',
+        price: 449.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'AMD Ryzen 7 5800X',
+        categoryName: 'Processors',
+        brandName: 'AMD',
+        shopName: 'Newegg',
+        description: '8-core, 16-thread processor with a max boost clock of 4.7GHz',
+        price: 459.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'NZXT Kraken X63',
+        categoryName: 'Cooling',
+        brandName: 'NZXT',
+        shopName: 'Best Buy',
+        description: '280mm All-in-One liquid cooler with RGB lighting',
+        price: 149.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'NZXT Kraken X63',
+        categoryName: 'Cooling',
+        brandName: 'NZXT',
+        shopName: 'Amazon',
+        description: '280mm All-in-One liquid cooler with RGB lighting',
+        price: 159.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Gigabyte Z490 AORUS Elite',
+        categoryName: 'Motherboards',
+        brandName: 'Gigabyte',
+        shopName: 'Newegg',
+        description: 'Intel Z490 motherboard with PCIe 4.0 and Wi-Fi support',
+        price: 179.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Gigabyte Z490 AORUS Elite',
+        categoryName: 'Motherboards',
+        brandName: 'Gigabyte',
+        shopName: 'Amazon',
+        description: 'Intel Z490 motherboard with PCIe 4.0 and Wi-Fi support',
+        price: 189.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Corsair RM850x',
+        categoryName: 'Power Supplies',
+        brandName: 'Corsair',
+        shopName: 'Amazon',
+        description: '850W Fully modular 80+ Gold certified power supply',
+        price: 129.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Corsair RM850x',
+        categoryName: 'Power Supplies',
+        brandName: 'Corsair',
+        shopName: 'Newegg',
+        description: '850W Fully modular 80+ Gold certified power supply',
+        price: 134.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'MSI B450 TOMAHAWK MAX',
+        categoryName: 'Motherboards',
+        brandName: 'MSI',
+        shopName: 'Newegg',
+        description: 'ATX motherboard with AMD B450 chipset, supporting Ryzen 3000 series processors',
+        price: 109.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'MSI B450 TOMAHAWK MAX',
+        categoryName: 'Motherboards',
+        brandName: 'MSI',
+        shopName: 'Amazon',
+        description: 'ATX motherboard with AMD B450 chipset, supporting Ryzen 3000 series processors',
+        price: 115.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'TP-Link Archer AX6000',
+        categoryName: 'Networking',
+        brandName: 'TP-Link',
+        shopName: 'Amazon',
+        description: 'Wi-Fi 6 Router with 8 Gigabit ports and 2.5Gbps WAN port',
+        price: 229.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'TP-Link Archer AX6000',
+        categoryName: 'Networking',
+        brandName: 'TP-Link',
+        shopName: 'Newegg',
+        description: 'Wi-Fi 6 Router with 8 Gigabit ports and 2.5Gbps WAN port',
+        price: 239.99,
         createdAt: new Date(),
         updatedAt: new Date()
       }
+      
+      
+      
     ], {});
   },
 
-  async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+  async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('Components', null, {});
   }
 };
