@@ -32,3 +32,14 @@ Comparación de componentes: Opción 1 -> donde los detalles/descripción de los
 
 Comparación de componentes: Opción 2 -> donde los detalles/descripción de los componentes se pueden ver directamente en la tarjeta del componente
 ![](assets/4.jpg)
+
+## Running the application
+Primero copiar los archivos de variables de entorno:
+1. En en directorio `/src`: `$ cp example.env .env`
+2. En el directorio `/src/app`: `$ cp example.env .env`
+
+Luego levantar la aplicación:
+1. En el directorio `/src`: `$ sudo docker compose up -d`
+
+Luego migrar y correr las seeds:
+1. En el directorio `/src/app`: `$ npx sequelize-cli db:migrate:all && npx sequelize-cli db:seed:all`
