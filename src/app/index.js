@@ -147,6 +147,19 @@ app.get('/components/search', async (req, res) => {
   }
 });
 
+// Rutas para obtener las tiendas
+app.get('/shops', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM "Shops"');
+    res.json(result.rows);
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error al obtener las tiendas');
+  }
+});
+
 // Manejo de errores para rutas no encontradas
 app.use((req, res) => {
   res.status(404).send('Ruta no encontrada');
