@@ -42,4 +42,4 @@ Luego levantar la aplicación:
 1. En el directorio `/src`: `$ sudo docker compose up -d`
 
 Luego migrar y correr las seeds:
-1. En el directorio `/src/app`: `$ npx sequelize-cli db:migrate:all && npx sequelize-cli db:seed:all`
+1. En el directorio `/src/app`: `$ npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all`
