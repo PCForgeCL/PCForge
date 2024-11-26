@@ -37,6 +37,7 @@ Comparación de componentes: Opción 2 -> donde los detalles/descripción de los
 Primero copiar los archivos de variables de entorno:
 1. En en directorio `/src`: `$ cp example.env .env`
 2. En el directorio `/src/app`: `$ cp example.env .env`
+3. En el directorio `/src/frontend/app`: `$ cp example.env .env`
 
 Luego levantar la aplicación:
 1. En el directorio `/src`: `$ sudo docker compose up -d`
