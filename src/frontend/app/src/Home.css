@@ -45,3 +45,35 @@ h1 {
   background-color: #ccc; 
   cursor: not-allowed;
 }
+
+.compare-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0;
+}
+
+.compare-button {
+  background-color: #ccc;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+}
+
+.compare-button.active {
+  background-color: #2ecc71; 
+  cursor: pointer;
+}
+
+.compare-button.active:hover {
+  background-color: #27ae60; 
+}
+
+.compare-button:disabled {
+  background-color: #ccc;
+}
+
