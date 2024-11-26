@@ -28,7 +28,6 @@ function SearchBar({ onSearch }) {
       <button className="search-button" onClick={handleSearch}>
         BUSCAR
       </button>
-      <button className="compare-button">COMPARAR</button>
     </div>
   );
 }
