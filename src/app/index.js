@@ -107,6 +107,24 @@ app.get('/components', async (req, res) => {
   }
 });
 
+app.get('/components/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM "Components" WHERE id = $1', [id]);
+    if (result.rows.length === 0) {
+      res.status(404).send('Componente no encontrado');
+    } else {
+      res.json(result.rows[0]);
+    }
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error al buscar el componente');
+  }
+});
+
 // Manejo de errores para rutas no encontradas
 app.use((req, res) => {
   res.status(404).send('Ruta no encontrada');

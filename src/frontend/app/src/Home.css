@@ -1,0 +1,79 @@
+.Home {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  height: 100vh;
+  padding-bottom: 40px; 
+}
+
+h1 {
+  color: #2ecc71;
+}
+
+.main-content {
+  flex-grow: 1; 
+  display: flex;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 40px; 
+}
+
+.pagination button {
+  padding: 10px 20px;
+  background-color: #2ecc71; 
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 10px;
+}
+
+.pagination button:hover {
+  background-color: #27ae60; 
+}
+
+.pagination button:disabled {
+  background-color: #ccc; 
+  cursor: not-allowed;
+}
+
+.compare-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0;
+}
+
+.compare-button {
+  background-color: #ccc;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+}
+
+.compare-button.active {
+  background-color: #2ecc71; 
+  cursor: pointer;
+}
+
+.compare-button.active:hover {
+  background-color: #27ae60; 
+}
+
+.compare-button:disabled {
+  background-color: #ccc;
+}
+
