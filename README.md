@@ -44,3 +44,11 @@ Luego levantar la aplicación:
 
 Luego migrar y correr las seeds:
 1. En el directorio `/src/app`: `$ npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all`
+
+## Testing the application
+Para testear la aplicación, debe hacerlo desde el directorio `src/` y con el sistema ya levantado
+1. Copiamos las variables de entorno. En el directorio `/src/app`: `$ cp example.env.tests .env.tests`
+2. Corremos los tests. En el directorio `/src`: `$ sudo docker compose exec backend npm test`
+
+Métricas actuales de statement, branch y function coverage se aduntan:
+![Alt text](assets/tests.png)

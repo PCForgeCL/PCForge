@@ -5,7 +5,15 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
-const PORT = process.env.PORT || 3000;
+
+
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log('Server running on http://localhost:3000');
+  });
+}
+
 
 // PostgreSQL connection setup using environment variables
 const pool = new Pool({
@@ -18,6 +26,7 @@ const pool = new Pool({
 
 // Middleware
 app.use(express.json());
+
 
 // Home route
 app.get('/', async (req, res) => {
@@ -130,7 +139,5 @@ app.use((req, res) => {
   res.status(404).send('Ruta no encontrada');
 });
 
-// Iniciar el servidor
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
+
+module.exports = app;
