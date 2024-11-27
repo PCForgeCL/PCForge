@@ -1,11 +1,19 @@
 import React from 'react';
 import './BottomSheet.css';
 import image from './graphics-card.png';
+import { useNavigate } from 'react-router-dom';
 
 function BottomSheet({ products, onClear, onCompare }) {
   const [firstProduct, secondProduct] = products;
 
   const isCompareEnabled = firstProduct && secondProduct;
+  const navigate = useNavigate();
+
+  const handleCompare = () => {
+    if (isCompareEnabled) {
+      navigate(`/compare/${firstProduct.id}/${secondProduct.id}`);
+    }
+  };
 
   return (
     <div className="bottom-sheet">
@@ -50,7 +58,7 @@ function BottomSheet({ products, onClear, onCompare }) {
 
         <div className="buttons">
         <button
-            onClick={onCompare}
+            onClick={handleCompare}
             className={`compare-button ${!isCompareEnabled ? 'disabled' : ''}`}
             disabled={!isCompareEnabled}
           >
