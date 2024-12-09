@@ -8,7 +8,6 @@ function Filter({ filters, setFilters }) {
 
   const API_URL = process.env.REACT_APP_API_URL;
 
-  // Valores iniciales de los filtros
   const initialFilters = {
     brand: '',
     category: '',
@@ -18,7 +17,6 @@ function Filter({ filters, setFilters }) {
   };
 
   useEffect(() => {
-    // Obtener marcas
     const fetchBrands = async () => {
       try {
         const response = await fetch(`${API_URL}/brands`);
@@ -29,7 +27,6 @@ function Filter({ filters, setFilters }) {
       }
     };
 
-    // Obtener categorías
     const fetchCategories = async () => {
       try {
         const response = await fetch(`${API_URL}/categories`);
@@ -40,7 +37,6 @@ function Filter({ filters, setFilters }) {
       }
     };
 
-    // Obtener tiendas
     const fetchShops = async () => {
       try {
         const response = await fetch(`${API_URL}/shops`);
@@ -56,16 +52,23 @@ function Filter({ filters, setFilters }) {
     fetchShops();
   }, [API_URL]);
 
+  const handlePriceChange = (e, type) => {
+    const value = Math.max(0, e.target.value); // Evitar valores negativos
+    setFilters({ ...filters, [type]: value });
+  };
+
   return (
     <div className="filter-section">
       <h3>Filtrar</h3>
+
       <div>
-        <label>Marca</label>
+        <label htmlFor="brand-filter">Seleccione la marca:</label>
         <select
+          id="brand-filter"
           value={filters.brand}
           onChange={(e) => setFilters({ ...filters, brand: e.target.value })}
         >
-          <option value="">(Todo)</option>
+          <option value="">(Todas las marcas)</option>
           {brands.map((brand) => (
             <option key={brand.id} value={brand.name}>
               {brand.name}
@@ -75,12 +78,13 @@ function Filter({ filters, setFilters }) {
       </div>
 
       <div>
-        <label>Categoría</label>
+        <label htmlFor="category-filter">Seleccione la categoría:</label>
         <select
+          id="category-filter"
           value={filters.category}
           onChange={(e) => setFilters({ ...filters, category: e.target.value })}
         >
-          <option value="">(Todo)</option>
+          <option value="">(Todas las categorías)</option>
           {categories.map((category) => (
             <option key={category.id} value={category.name}>
               {category.name}
@@ -90,12 +94,13 @@ function Filter({ filters, setFilters }) {
       </div>
 
       <div>
-        <label>Tienda</label>
+        <label htmlFor="shop-filter">Seleccione la tienda:</label>
         <select
+          id="shop-filter"
           value={filters.shop}
           onChange={(e) => setFilters({ ...filters, shop: e.target.value })}
         >
-          <option value="">(Todo)</option>
+          <option value="">(Todas las tiendas)</option>
           {shops.map((shop) => (
             <option key={shop.id} value={shop.name}>
               {shop.name}
@@ -105,28 +110,25 @@ function Filter({ filters, setFilters }) {
       </div>
 
       <div>
-        <label>Precio mínimo</label>
+        <label htmlFor="min-price">Precio mínimo ($):</label>
         <input
+          id="min-price"
           type="number"
           value={filters.minPrice}
-          onChange={(e) =>
-            setFilters({ ...filters, minPrice: e.target.value })
-          }
+          onChange={(e) => handlePriceChange(e, 'minPrice')}
         />
       </div>
 
       <div>
-        <label>Precio máximo</label>
+        <label htmlFor="max-price">Precio máximo ($):</label>
         <input
+          id="max-price"
           type="number"
           value={filters.maxPrice}
-          onChange={(e) =>
-            setFilters({ ...filters, maxPrice: e.target.value })
-          }
+          onChange={(e) => handlePriceChange(e, 'maxPrice')}
         />
       </div>
 
-      {/* Botón para reestablecer los filtros */} 
       <button
         className="reset-button"
         onClick={() => setFilters(initialFilters)}
