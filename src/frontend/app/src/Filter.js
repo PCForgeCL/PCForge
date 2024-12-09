@@ -59,8 +59,7 @@ function Filter({ filters, setFilters }) {
 
   return (
     <div className="filter-section">
-      <h3>Filtrar</h3>
-
+      {/* Título eliminado */}
       <div>
         <label htmlFor="brand-filter">Seleccione la marca:</label>
         <select
