@@ -1,6 +1,4 @@
 .product-detail {
-    font-family: Arial, sans-serif;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
@@ -19,16 +17,14 @@
   
   .product-detail-content {
     display: flex;
-    flex-grow: 1;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
   }
   
   .product-image {
-    flex: 1;
     max-width: 250px;
-    border: 1.5px solid #dcdcdc; 
+    border: 1.5px solid #2ecc71; 
     border-radius: 8px;
-    padding: 8px; 
   }
   
   .product-image img {
@@ -38,8 +34,8 @@
   }
   
   .product-info {
-    flex: 2;
-    margin-left: 40px;
+    margin-top: 20px;
+    text-align: center;
   }
   
   .product-info p {

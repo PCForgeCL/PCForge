@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './Home.css';
 import ProductList from './ProductList';
 import Filter from './Filter';
 import SearchBar from './SearchBar';
@@ -77,7 +76,6 @@ function Home() {
       return [...prevSelected, product];
     });
   };
-  
 
   const handleClearSelection = () => {
     setSelectedProducts([]);
@@ -94,16 +92,23 @@ function Home() {
   const isLastPage = products.length < 9;
 
   return (
-    <div className="Home">
-      <h1>PCForge</h1>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-8xl font-bold text-left text-gray-800 mb-8">
+        <span className="text-primary">PC</span>
+        <span className="text-gray-800">Forge</span>
+        <span className="text-primary mb-4 text-xl">
+          Comparador de precios de componentes de PC
+        </span>
+      </h1>
+      
       <SearchBar onSearch={handleSearch} />
-      <div className="main-content">
+      <div className="flex flex-col lg:flex-row gap-6 mt-6">
         <Filter filters={filters} setFilters={setFilters} />
-        <div className="product-section">
+        <div className="flex-1">
           {loading ? (
-            <p>Cargando productos...</p>
+            <p className="text-center text-gray-600">Cargando productos...</p>
           ) : products.length === 0 ? (
-            <p>No se encontraron productos</p>
+            <p className="text-center text-gray-600">No se encontraron productos</p>
           ) : (
             <>
               <ProductList
@@ -111,12 +116,20 @@ function Home() {
                 selectedProducts={selectedProducts}
                 onToggleCompare={handleToggleCompare}
               />
-              <div className="pagination">
-                <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+              <div className="flex justify-between items-center mt-4">
+                <button
+                  onClick={handlePreviousPage}
+                  disabled={currentPage === 1}
+                  className="px-4 py-2 bg-gray-300 rounded disabled:bg-gray-200"
+                >
                   Anterior
                 </button>
-                <span>Página {currentPage}</span>
-                <button onClick={handleNextPage} disabled={isLastPage}>
+                <span className="text-gray-600">Página {currentPage}</span>
+                <button
+                  onClick={handleNextPage}
+                  disabled={isLastPage}
+                  className="px-4 py-2 bg-gray-300 rounded disabled:bg-gray-200"
+                >
                   Siguiente
                 </button>
               </div>
